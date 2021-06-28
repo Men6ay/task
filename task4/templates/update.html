@@ -1,0 +1,25 @@
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <div class="container">
+        <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label">First_name</label>
+            <input type="text" name="first_name" class="form-control" id="formGroupExampleInput"
+                   placeholder="Example input placeholder">
+        </div>
+        <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label">Last_name</label>
+            <input type="text" name="last_name" class="form-control" id="formGroupExampleInput"
+                   placeholder="Example input placeholder">
+        </div>
+        <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label">birth_date</label>
+            <input type="text" name="birth_date" class="form-control" id="formGroupExampleInput"
+                   placeholder="Example input placeholder">
+        </div>
+        <div class="container">
+            <button class="btn btn-primary active" type="submit">UPDATE</button>
+        </div>
+    </div>
+</form>
+{% endblock %}

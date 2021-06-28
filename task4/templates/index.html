@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for profiles in profile %}
+    <div>
+        <p>{{ profiles.first_name }}</p>
+        <p>{{ profiles.last_name }}</p>
+        <p>{{ profiles.birth_date }}</p>
+    </div>
+    <div>
+        <a href = '{% url "delete" profiles.id %}'>DELETE</a>
+    </div>
+    <div>
+        <a href = '{% url "update" profiles.id %}'>UPDATE</a>
+    </div>
+    {% endfor %}
+    <div>
+        <a href = '{% url "create" %}'>CREATE</a>
+    </div>
+</body>
+</html>

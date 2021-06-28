@@ -3,7 +3,7 @@ from .models import Profile
 
 def index(request):
     profile = Profile.objects.all()
-    return render(request, '', {'profile':profile})
+    return render(request, 'index.html', {'profile':profile})
 
 def create(request):
     if request.method == 'POST':
@@ -11,8 +11,8 @@ def create(request):
         last_name = request.POST.get('last_name')
         birth_date = request.POST.get('birth_date')
         profile_obj = Profile.objects.create(first_name=first_name, last_name=last_name,birth_date=birth_date)
-        return redirect('')
-    return render(request, '')
+        return redirect('index')
+    return render(request, 'create.html')
 
 def update(request, id):
     if request.method == 'POST':
@@ -24,12 +24,12 @@ def update(request, id):
         profile_update.last_name = last_name
         profile_update.birth_date = birth_date
         profile_update.save()
-        return redirect('')
-    return render(request, '')
+        return redirect('index')
+    return render(request, 'update.html')
 
 def delete(request, id):
     if request.method == 'POST':
         profile_obj = Profile.objects.get(id=id)
         profile_obj.delete()
-        return redirect('')
-    return render(request, '')
+        return redirect('index')
+    return render(request, 'delete.html')
